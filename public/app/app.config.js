@@ -8,7 +8,13 @@ angular.module('petStore')
         $locationProvider.html5Mode({ enabled: true });
         $routeProvider
             .when("/",{
-                template: "<customers-module></customers-module>"
+                template: "<sample-module></sample-module>"
+            })
+            .when("/customers",{
+                template: "<customer-list-module></customer-list-module>"
+            })
+            .when("/customers/:id",{
+                template: "<customer-details-module></customer-details-module>"
             })
             .otherwise({
                 template: "Other"

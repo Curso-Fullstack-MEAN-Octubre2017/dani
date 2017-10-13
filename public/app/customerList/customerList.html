@@ -1,0 +1,17 @@
+<div ng-controller="CustomerListController">
+CustomerListController
+	<table>
+		<thead>
+			<th>id</th>
+			<th>dni</th>
+			<th>firstName</th>
+			<th>lastName</th>
+		</thead>
+		<tr ng-repeat="customer in customerList">
+			<td><a ng-href="/customers/{{customer._id}}" >{{customer._id}}</a></td>
+			<td>{{customer.dni}}</td>
+			<td>{{customer.firstName}}</td>
+			<td>{{customer.lastName}}</td>
+		</tr>
+	</table>
+</div>
