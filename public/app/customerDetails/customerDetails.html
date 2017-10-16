@@ -1,20 +1,26 @@
-<div ng-controller="CustomerDetailsController">
+<div data-ng-controller="CustomerDetailsController">
 CustomerDetailsController {{customer._id}}<br />
 
-dni:<input type="text" ng-model="customer.dni" placeholder="" /><br />
-lastName:<input type="text" ng-model="customer.lastName" placeholder="" /><br />
-firstName:<input type="text" ng-model="customer.firstName" placeholder="" /><br />
-phone:<input type="text" ng-model="customer.phone" placeholder="" /><br />
-email:<input type="text" ng-model="customer.email" placeholder="" /><br />
-note:<input type="text" ng-model="customer.note" placeholder="" /><br />
+dni:<input type="text" data-ng-model="customer.dni" placeholder="" /><br />
+lastName:<input type="text" data-ng-model="customer.lastName" placeholder="" /><br />
+firstName:<input type="text" data-ng-model="customer.firstName" placeholder="" /><br />
+phone:<input type="text" data-ng-model="customer.phone" placeholder="" /><br />
+email:<input type="text" data-ng-model="customer.email" placeholder="" /><br />
+note:<input type="text" data-ng-model="customer.note" placeholder="" /><br />
 <br /><br />
+
+<input type="button" data-ng-show="isNew()" data-ng-click="insert()" value="Insert">
+<input type="button" data-ng-show="!isNew()" data-ng-click="update()" value="Update">
+
+<br />
+<br />
 
 <ul>
-	<li ng-repeat="pet in customerPets">{{pet}}</li>
+	<li data-ng-repeat="pet in customerPets">
+	{{pet}}
+	<a data-ng-href="/pets/{{pet._id}}">Detalles Mascota</a>
+	</li>
 </ul>
-
-<br /><br />
-<input type="button" ng-show="isNew()" ng-click="insert()" value="Insert">
-<input type="button" ng-show="!isNew()" ng-click="update()" value="Update">
+<a href="/customers/{{customer._id}}/pets/new">Añadir Mascota</a>
 
 </div>

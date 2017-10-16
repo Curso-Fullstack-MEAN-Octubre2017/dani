@@ -107,7 +107,7 @@ module.exports = (router) => {
 	 * Get one
 	 */
 	router.delete('/customers/:id',function(req, res) {
-		console.log("/customers/" + req.params.id);
+		console.log("/customer/" + req.params.id);
 		Customer.findByIdAndRemove(req.params.id, function(err, customer) {
 			if (err) {
 				console.error(err);

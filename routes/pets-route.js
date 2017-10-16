@@ -1,4 +1,4 @@
-const Pets = require('../models/pets-model');
+const Pet = require('../models/pets-model');
 //const Utils = require("../utils/utils.js");
 //const Validators = require("../public/app/validation/validators.js");
 
@@ -8,7 +8,6 @@ module.exports = (router) => {
 	 * FindAll
 	 */
 	router.get('/pets', function(req, res, next) {
-		console.log("Search pets:", search);
 		Pet.find({}, (err, pets) => {
 			if (err) {
 				console.error(err);
@@ -90,7 +89,7 @@ module.exports = (router) => {
 	/**
 	 * Get one
 	 */
-	router.delete('/pets/:id',function(req, res) {
+	router.delete('/pet/:id',function(req, res) {
 		console.log("/pets/" + req.params.id);
 		Pet.findByIdAndRemove(req.params.id, function(err, pet) {
 			if (err) {

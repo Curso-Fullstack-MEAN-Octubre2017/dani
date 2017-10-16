@@ -6,15 +6,18 @@ angular.module('petStore')
         $routeProvider
     ){
         $locationProvider.html5Mode({ enabled: true });
-        $routeProvider
+        $routeProvider            
             .when("/",{
-                template: "<sample-module></sample-module>"
-            })
-            .when("/customers",{
                 template: "<customer-list-module></customer-list-module>"
             })
             .when("/customers/:id",{
                 template: "<customer-details-module></customer-details-module>"
+            })
+            .when("/pets/:id",{
+            	template: "<pet-details-module></pet-details-module>"
+            })
+            .when("/customers/:customerId/pets/new",{
+            	template: "<pet-details-module></pet-details-module>"
             })
             .otherwise({
                 template: "Other"
