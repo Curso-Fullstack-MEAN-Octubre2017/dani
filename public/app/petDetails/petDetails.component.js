@@ -16,9 +16,9 @@ angular.module('petDetailsModule')
 	    		console.log("Response /api/pets/" + $routeParams.id, response);
 	    		$scope.pet = response.data;
 	    	});	    	
-    	} else if($routeParams.customerId){
-    		
+    	} else if($routeParams.customerId){    		
     		$scope.pet = {};
+    		$scope.pet.ownerId = $routeParams.customerId;
     	}
     	
     	$scope.insert = function() {
