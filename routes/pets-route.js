@@ -89,7 +89,7 @@ module.exports = (router) => {
 	/**
 	 * Get one
 	 */
-	router.delete('/pet/:id',function(req, res) {
+	router.delete('/pets/:id',function(req, res) {
 		console.log("/pets/" + req.params.id);
 		Pet.findByIdAndRemove(req.params.id, function(err, pet) {
 			if (err) {

@@ -9,14 +9,16 @@ angular.module('petDetailsModule')
             console.log("Incializando petDetails")
         }
     }).controller('PetDetailsController', function($scope, $http, $routeParams){
+    	console.log("Inicializando PetDetailsController");    	    	
     	console.log("Inicializando PetDetailsController");
     	
-    	if(isNaN(+$routeParams.id)) {
+    	if(typeof $routeParams.id !== 'undefined') {
 	    	$http.get("/api/pets/" + $routeParams.id).then(function(response) {
-	    		console.log("Response /api/pets/" + $routeParams.id, response);
+	    		console.log("petID:" + $routeParams.id);
 	    		$scope.pet = response.data;
 	    	});	    	
-    	} else if($routeParams.customerId){    		
+    	} else{
+    		console.log("ownerID:" + $routeParams.ownerId);
     		$scope.pet = {};
     		$scope.pet.ownerId = $routeParams.customerId;
     	}
@@ -32,6 +34,13 @@ angular.module('petDetailsModule')
     		console.log("Update pet:", $scope.pet);
     		$http.put("/api/pets/" + $scope.pet._id, $scope.pet).then(function(response){
     			$scope.pet = response.data;
+    		});
+    	}
+    	
+    	$scope.remove = function(){
+    		console.log("Delete pet:", $scope.pet);
+    		$http.delete("/api/pets/" + $scope.pet._id).then(function(response){
+    			history.back();
     		});
     	}
     	
