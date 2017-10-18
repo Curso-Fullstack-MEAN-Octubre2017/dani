@@ -12,7 +12,8 @@ angular.module('customerDetailsModule')
     .controller('CustomerDetailsController', function($http, $scope, $routeParams) {
     	console.log("inicializando el CustomerDetailsController...");
     	
-    	if(isNaN(+$routeParams.id)) {
+    	if(isNaN(+$routeParams.id)) { // Comprobamos si hay un id.
+    		//Aquí recuperamos los datos para modificarlo.
 	    	$http.get("/api/customers/" + $routeParams.id).then(function(response) {
 	    		console.log("Response /api/customers/" + $routeParams.id, response);
 	    		$scope.customer = response.data;
@@ -22,10 +23,12 @@ angular.module('customerDetailsModule')
 	    		$scope.customerPets = response.data;
 	    	});	    	
     	} else {
+    		// Y aquí limpiamos los campos para añadir uno nuevo.
     		$scope.customer = {};
     		$scope.customerPets = []
     	}
 
+    	// Añadimos un nuevo cliente.
     	$scope.insert = function() {
     		console.log("Insert customer:", $scope.customer);
     		$http.post("/api/customers", $scope.customer).then(function(response){

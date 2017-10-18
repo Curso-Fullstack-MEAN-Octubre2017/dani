@@ -4,6 +4,7 @@ var favicon = require('serve-favicon');
 var logger = require('morgan');
 var cookieParser = require('cookie-parser');
 var bodyParser = require('body-parser');
+var moment = require('moment');
 
 const router = express.Router();
 
@@ -31,6 +32,7 @@ app.use(express.static(path.join(__dirname, 'public')));
 
 app.use('/api', require('./routes/customers-route')(router));
 app.use('/api', require('./routes/pets-route')(router));
+app.use('/api', require('./routes/appointments-route')(router));
 
 //Front End: SPA with Angular + HTML5 urls
 app.all("*", (req, res) => {

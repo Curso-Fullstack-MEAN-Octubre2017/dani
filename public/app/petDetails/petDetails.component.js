@@ -9,7 +9,6 @@ angular.module('petDetailsModule')
             console.log("Incializando petDetails")
         }
     }).controller('PetDetailsController', function($scope, $http, $routeParams){
-    	console.log("Inicializando PetDetailsController");    	    	
     	console.log("Inicializando PetDetailsController");
     	
     	if(typeof $routeParams.id !== 'undefined') {
