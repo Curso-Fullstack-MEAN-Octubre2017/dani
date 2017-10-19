@@ -6,8 +6,8 @@ const Pet = require('../models/pets-model');
 const Appointment = require('../models/appointments-model');
 
 var app2 = {
-		"dateStart": "2018-10-21T09:00:00.000Z",
-		"dateEnd" : "2018-10-21T09:30:00.000Z",
+		"dateStart": "2017-10-03T16:00:00.000Z",
+		"dateEnd" : "2017-10-03T17:00:00.000Z",
 		"petId" : "59e0ad1714e88304c8539f25",
 		"status" : "0",
 		"note" : "segunda vacuna"

@@ -1,5 +1,6 @@
 var mongoose = require('mongoose');
 var Schema = mongoose.Schema;
+const Pet = mongoose.model('Pet');
 
 var appointmentSchema = new Schema({
 	dateStart: {type: Date, required: true},
