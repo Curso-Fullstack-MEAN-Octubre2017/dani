@@ -69,7 +69,7 @@ module.exports = (router) => {
 	//Recuperamos una cita a través de la fecha de inicio y la fecha de fin y filtramos los datos:
 	router.get('/appointments/:month', function(req, res){
 		
-		var mes = moment(req.params.month, 'YYYYMM');
+		var mes = moment(req.params.month, 'YYYYMM'); 
 		
 		Appointment.find({dateStart: mes}, function(err, appointments){
 			if (err) {
