@@ -4,13 +4,46 @@
 const Customer = require('../models/customers-model');
 const Pet = require('../models/pets-model');
 const Appointment = require('../models/appointments-model');
+var moment = require('moment');
 
-var app2 = {
-		"dateStart": "2017-10-03T16:00:00.000Z",
-		"dateEnd" : "2017-10-03T17:00:00.000Z",
-		"petId" : "59e0ad1714e88304c8539f25",
-		"status" : "0",
-		"note" : "segunda vacuna"
+//var app2 = {
+//		"dateStart": "2017-10-03T16:00:00.000Z",
+//		"dateEnd" : "2017-10-03T17:00:00.000Z",
+//		"petId" : "59e0ad1714e88304c8539f25",
+//		"status" : "0",
+//		"note" : "segunda vacuna"
+//}
+
+
+var inicio = moment("2017-10-15T09:00:00Z");
+var fin =   moment("2017-10-15T09:30:00Z");
+
+	for(var i=0;i<=24;i++){
+	
+		var sampleApp = {
+				"dateStart": inicio,
+				"dateEnd": fin,
+				"petId": "59e0ad1714e88304c8539f25",
+				"status": "0",
+				"note" : "revisión " + i+1
+ 			};
+		
+		inicio = moment(inicio).add(30,'m');
+		fin = moment(fin).add(30,'m');
+		
+	    	testInsertApp();
+
+	}
+
+function testInsertApp() {
+	const app = new Appointment(sampleApp);
+	app.save((err) => {
+		if (err) {
+			console.error(err);
+		} else {
+			console.log("testInsertApp", app);	
+		}
+	})
 }
 
 //var mikiCustomer = {
@@ -55,17 +88,6 @@ var app2 = {
 //	})
 //}
 
-function testInsertAppointment() {
-const appointment = new Appointment(app2);
-appointment.save((err) => {
-	if (err) {
-		console.error(err);
-	} else {
-		console.log("testInsertAppointment", appointment);
-	}
-})
-}
-
 //function testSearchCustomers() {
 //	var search = {};
 //	var regexp = new RegExp("gonzalez", "i")
@@ -84,5 +106,5 @@ appointment.save((err) => {
 
 //testInsertMiki();
 //testInsertPet();
-testInsertAppointment();
+//testInsertAppointment();
 //testSearchCustomers();
