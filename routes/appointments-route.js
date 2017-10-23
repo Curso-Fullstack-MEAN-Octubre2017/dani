@@ -74,8 +74,12 @@ module.exports = (router) => {
 						var date = moment(item.dateStart).format("YYYY-MM-DD");
 						var time = moment(item.dateStart).format("HH:mm");
 						
-						if(appointmentsByDate[date] == null) appointmentsByDate[date] = {};
-						if(appointmentsByDate[date][time] == null) appointmentsByDate[date][time] = item;						
+						if(appointmentsByDate[date] == null){
+							appointmentsByDate[date] = {};
+						}
+						if(appointmentsByDate[date][time] == null){
+							appointmentsByDate[date][time] = item;						
+						}
 					}
 					
 					res.send(appointmentsByDate);

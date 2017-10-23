@@ -1,5 +1,37 @@
-<div data-ng-controller="appointmentsCalendarController">
-	
-	<div>{{monthDays}}</div>
-	
+
+<div class="calendar">
+
+	<div class="navigarion">		
+		<div class="prev">
+			<a data-ng-href="appointments-calendar/{{prevMonth | date : 'yyyyMMdd'}}">
+				<i>&#60;&#60;</i>
+			</a>
+		</div>
+		<div class="month">
+			<span>{{currentMonth | date : 'MMMM yyyy'}}</span>
+		</div>
+		<div class="next">
+			<a data-ng-href="appointments-calendar/{{nextMonth | date: 'yyyyMMdd'}}">
+				<i>&#62;&#62;</i>
+			</a>
+		</div>			
+	</div>
+	<div class="calendar_header">
+		<div class="calendar_day monday">Lunes</div>
+		<div class="calendar_day tuesday">Martes</div>
+		<div class="calendar_day wednesday">Miércoles</div>
+		<div class="calendar_day thursday">Jueves</div>
+		<div class="calendar_day friday">Viernes</div>
+		<div class="calendar_day saturday">Sábado</div>
+		<div class="calendar_day sunday">Domingo</div>
+	</div>
+	<div class="calendar_body">
+		<a data-ng-href="" data-ng-repeat="cell in cells">
+			<div class="calendar_day {{cell.date | date: 'EEEE' | lowercase}}">
+				<span>{{cell.date | date: 'dd-MM-yyyy'}}</span>
+				<span>{{cell.appointmentsCount}}</span>
+			</div>
+		</a>
+	</div>
+
 </div>
