@@ -59,8 +59,8 @@ module.exports = (router) => {
 	//Recuperamos una cita a través de la fecha de inicio y la fecha de fin:
 		router.get('/appointmentsByDate/:fromdate/:todate', function(req, res){
 			
-			var fechaInicio = moment(req.params.fromdate, 'YYYYMM');
-			var fechaFin = moment(req.params.todate, 'YYYYMM');
+			var fechaInicio = moment(req.params.fromdate, 'YYYYMMDD');
+			var fechaFin = moment(req.params.todate, 'YYYYMMDD');
 			
 			Appointment.find({dateStart : {"$gte": fechaInicio, "$lt": fechaFin}}, function(err, appointments){
 				if (err) {

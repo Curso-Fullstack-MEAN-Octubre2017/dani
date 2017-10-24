@@ -5,7 +5,7 @@ angular.module('appointmentsCalendarModule', []);
 angular.module('appointmentsCalendarModule')
     .component('appointmentsCalendarModule', {
         templateUrl:'/app/appointmentsCalendar/appointmentsCalendar.html',
-        controller: function($scope, $http, $routeParams) {
+        controller: function($scope, $http, $routeParams, $location) {
         	
         	console.log("Inicializando el controlador del calendario...");        	
         	moment.locale('es');
@@ -17,7 +17,7 @@ angular.module('appointmentsCalendarModule')
         	
         	// Comprobamos si nos llega un mes por la ruta (botones para movernos por los meses).
         	if($routeParams.month){
-        		currentMonth = moment($routeParams.month, "YYYYMM");
+        		currentMonth = moment($routeParams.month, "YYYYMMDD");
         	}
         	
         	$scope.currentMonth = currentMonth.toDate();
@@ -52,5 +52,9 @@ angular.module('appointmentsCalendarModule')
         		}
         		
         	});
+        	
+        	$scope.appointmentsDate = function(date){
+        		$location.path("/appointments-day/" + moment(date).format("YYYYMMDD"))
+        	}
        }
     });

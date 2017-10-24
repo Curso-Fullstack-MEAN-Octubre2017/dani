@@ -28,6 +28,9 @@ angular.module('petStore')
             .when("/appointments-calendar/:month",{
             	template: "<appointments-calendar-module></appointments-calendar-module>"
             })
+            .when("/appointments-day/:date",{
+            	template: "<appointments-day-module></appointments-day-module>"
+            })
             .otherwise({
                 template: "Other"
             });

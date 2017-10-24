@@ -25,13 +25,11 @@
 		<div class="calendar_day saturday">Sábado</div>
 		<div class="calendar_day sunday">Domingo</div>
 	</div>
-	<div class="calendar_body">
-		<a data-ng-href="" data-ng-repeat="cell in cells">
-			<div class="calendar_day {{cell.date | date: 'EEEE' | lowercase}}">
-				<span>{{cell.date | date: 'dd-MM-yyyy'}}</span>
-				<span>{{cell.appointmentsCount}}</span>
-			</div>
-		</a>
+	<div class="calendar_body">		
+		<div class="calendar_day {{cell.date | date: 'EEEE' | lowercase}}" data-ng-repeat="cell in cells">
+			<span>{{cell.date | date: 'dd-MM-yyyy'}}</span>
+			<span>{{cell.appointmentsCount}}</span>			
+			<i class="material-icons" data-ng-click="appointmentsDate(cell.date)">view_list</i>	
+		</div>		
 	</div>
-
 </div>
