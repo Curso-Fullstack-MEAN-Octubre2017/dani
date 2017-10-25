@@ -27,6 +27,13 @@ module.exports = (router) => {
 			} else {
 				res.json(appointments);
 			}
+		}).populate({
+			path: "petId",
+			model: "Pet",
+			populate: {
+				path: "ownerId",
+				model: "Customer"
+			}
 		});
 	});
 	
@@ -71,13 +78,13 @@ module.exports = (router) => {
 					
 					for(var i = 0; i < appointments.length; i++){
 						var item = appointments[i];
-						var date = moment(item.dateStart).format("YYYY-MM-DD");
+						var date = moment(item.dateStart).format("YYYYMMDD");
 						var time = moment(item.dateStart).format("HH:mm");
 						
-						if(appointmentsByDate[date] == null){
+						if(appointmentsByDate[date] == undefined){
 							appointmentsByDate[date] = {};
 						}
-						if(appointmentsByDate[date][time] == null){
+						if(appointmentsByDate[date][time] == undefined){
 							appointmentsByDate[date][time] = item;						
 						}
 					}

@@ -1,16 +1,26 @@
 
-<table>
-		<tr>
-			<th>hora</th>
-			<th>cita</th>
-			<th>accion</th>
+<table class="responsive-table bordered centered highlight">
+		<tr class="blue darken-1 white-text">
+			<td>Hora</td>
+			<td>Mascota</td>
+			<td>Estado de la cita</td>
+			<td><i class="material-icons">input</i></th>
 		</tr>
 		<tr data-ng-repeat="x in timetable">
 			<td>{{x.hour}}</td> 
-			<td><span data-ng-show="x.appointment">Pet: {{x.appointments.pet.name}}, Status: {{x.appointments.status}}</span></td>
 			<td>
-				<a data-ng-show="x.appointments" href="/appointments/{{x.appointment._id}}">Editar</a>
-				<a data-ng-show="!x.appointment" href="/appointments/add/{{currentDate + '-' + x.hour}}">Añadir</a>
+				<span data-ng-show="x.appointment">{{x.appointment.petId.name}}</span>
+			</td>
+			<td>
+				<span data-ng-show="x.appointment">{{x.appointment.status}}</span>
+			</td>
+			<td>
+				<a data-ng-show="x.appointment" href="/appointments/{{x.appointment._id}}">
+					<i class="material-icons">mode_edit</i>
+				</a>
+				<a data-ng-show="!x.appointment" href="/appointments/add/{{currentDate + '-' + x.hour}}">
+					<i class="material-icons">add_box</i>
+				</a>
 			</td>
 		</tr>
 </table>

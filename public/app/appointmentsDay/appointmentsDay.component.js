@@ -32,7 +32,7 @@ angular.module('appointmentsDayModule')
                     var hourKey = hour.format('HH:mm');
                     $scope.timetable.push({
                         hour: hourKey,
-                        apps: $scope.app[hourKey]
+                        appointment: $scope.app[hourKey]
                     });
                 }         
 

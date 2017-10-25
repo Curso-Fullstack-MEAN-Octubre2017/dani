@@ -43,7 +43,7 @@ angular.module('appointmentsCalendarModule')
         		
         		// Pintamos las celdas que corresponden al mes y añadimos los datos a cada celda.
         		for(var M = moment($scope.currentMonth); M.isBefore($scope.nextMonth); M.add(1, "days")){
-        			var currentDate = M.format("YYYY-MM-DD");
+        			var currentDate = M.format("YYYYMMDD");
         			$scope.cells.push({
         				date: currentDate,
         				appointments: $scope.appointmentsByDate[currentDate],
