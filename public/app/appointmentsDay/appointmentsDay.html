@@ -18,7 +18,7 @@
 				<a data-ng-show="x.appointment" href="/appointments/{{x.appointment._id}}">
 					<i class="material-icons">mode_edit</i>
 				</a>
-				<a data-ng-show="!x.appointment" href="/appointments/add/{{currentDate + '-' + x.hour}}">
+				<a data-ng-show="!x.appointment" href="/appointments/new/{{day + '-' + x.hour}}">
 					<i class="material-icons">add_box</i>
 				</a>
 			</td>

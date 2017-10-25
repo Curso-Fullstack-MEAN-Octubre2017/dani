@@ -31,7 +31,7 @@ angular.module('appointmentsCalendarModule')
         	var firstWeekDay = currentMonth.weekday();
         	// Pintamos las celdas previas al día en el que empieza el mes.
         	for(var i = 0; i < firstWeekDay; i++){
-        		$scope.cells.push({date: "•"});
+        		$scope.cells.push({date: "-"});
         	}
         	
         	var formatCurrentMonth = moment($scope.currentMonth).format("YYYYMMDD");
@@ -42,10 +42,10 @@ angular.module('appointmentsCalendarModule')
         		$scope.appointmentsByDate = response.data;
         		
         		// Pintamos las celdas que corresponden al mes y añadimos los datos a cada celda.
-        		for(var M = moment($scope.currentMonth); M.isBefore($scope.nextMonth); M.add(1, "days")){
-        			var currentDate = M.format("YYYYMMDD");
+        		for(var m = moment($scope.currentMonth); m.isBefore($scope.nextMonth); m.add(1, "days")){
+        			var currentDate = m.format("YYYYMMDD");
         			$scope.cells.push({
-        				date: currentDate,
+        				date: m.toDate(),
         				appointments: $scope.appointmentsByDate[currentDate],
         				appointmentsCount: $scope.appointmentsByDate[currentDate] ? Object.keys($scope.appointmentsByDate[currentDate]).length : 0
         			});  			

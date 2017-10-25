@@ -25,6 +25,9 @@ angular.module('petStore')
             .when("/appointments/:id",{
             	template: "<appointment-details-module></appointment-details-module>"
             })
+            .when("/appointments/new/:date",{
+            	template: "<appointment-details-module></appointment-details-module>"
+            })
             .when("/appointments-calendar",{
             	template: "<appointments-calendar-module></appointments-calendar-module>"
             })

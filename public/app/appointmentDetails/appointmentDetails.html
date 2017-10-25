@@ -1,10 +1,14 @@
 
 <div>
-Cita: {{appointment._id}}<br />
 
-Dueño:<input type="text" data-ng-model="appointment.petId.ownerId.firstName" placeholder="" /><br />
-Mascota:<input type="text" data-ng-model="appointment.petId.name" placeholder="" /><br />
-Fecha cita:<input type="text" data-ng-model="appointment.dateStart" placeholder="" /><br />
+Fecha Inicio:<input type="text" data-ng-model="appointment.dateStart | date: 'yyyy-MM-dd HH:mm'" placeholder="" /><br />
+Fecha Fin:<input type="text" data-ng-model="appointment.dateEnd | date: 'yyyy-MM-dd HH:mm'" placeholder="" /><br />
+Mascota:<select>
+	      <option value="" disabled selected>Selecciona una mascota</option>
+	      <option value="1">Option 1</option>
+	      <option value="2">Option 2</option>
+	      <option value="3">Option 3</option>
+	    </select><br>
 Estado:<input type="text" data-ng-model="appointment.status" placeholder="" /><br />
 note:<input type="text" data-ng-model="appointment.note" placeholder="" /><br />
 <br /><br />
