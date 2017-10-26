@@ -1,19 +1,25 @@
 
 <div>
 
-Fecha Inicio:<input type="text" data-ng-model="appointment.dateStart | date: 'yyyy-MM-dd HH:mm'" placeholder="" /><br />
-Fecha Fin:<input type="text" data-ng-model="appointment.dateEnd | date: 'yyyy-MM-dd HH:mm'" placeholder="" /><br />
-Mascota:<select>
-	      <option value="" disabled selected>Selecciona una mascota</option>
-	      <option value="1">Option 1</option>
-	      <option value="2">Option 2</option>
-	      <option value="3">Option 3</option>
+<h5 class="header blue-text darken-1">Cita: {{appointment.dateStart | date: 'HH:mm'}}h. del {{appointment.dateStart | date: 'dd/MM/y'}}</h5>
+
+Mascota:<select id="mi-select" class="browser-default" ng-model="appointment.petId._id" 
+			ng-options="pet._id as pet.name for pet in pets">
+	        <option value="" disabled selected>Selecciona una mascota</option>
 	    </select><br>
-Estado:<input type="text" data-ng-model="appointment.status" placeholder="" /><br />
+Estado:<select id="mi-select" class="browser-default" data-ng-model="appointment.status">
+	        <option value="" disabled selected>Selecciona un estado</option>
+	        <option value="-1">Cancelado</option>
+	        <option value="0">Pendiente</option>
+	        <option value="1">En Curso</option>
+	        <option value="2">Completado</option>
+	    </select><br>
+<!-- <input type="text" data-ng-model="appointment.status" placeholder="" /><br /> -->
 note:<input type="text" data-ng-model="appointment.note" placeholder="" /><br />
 <br /><br />
 
-<!-- <input type="button" data-ng-show="isNew()" data-ng-click="insert()" value="Insert"> -->
-<!-- <input type="button" data-ng-show="!isNew()" data-ng-click="update()" value="Update"> -->
+<input type="button" data-ng-show="isNew()" data-ng-click="insert()" value="Insert">
+<input type="button" data-ng-show="!isNew()" data-ng-click="update()" value="Update">
+<input type="button" data-ng-click="delete()" value="Delete">
 
 </div>

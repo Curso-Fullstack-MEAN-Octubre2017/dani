@@ -15,36 +15,36 @@ var moment = require('moment');
 //}
 
 
-var inicio = moment("2017-10-15T09:00:00Z");
-var fin =   moment("2017-10-15T09:30:00Z");
-
-	for(var i=0;i<=24;i++){
-	
-		var sampleApp = {
-				"dateStart": inicio,
-				"dateEnd": fin,
-				"petId": "59e0ad1714e88304c8539f25",
-				"status": "0",
-				"note" : "revisión " + i+1
- 			};
-		
-		inicio = moment(inicio).add(30,'m');
-		fin = moment(fin).add(30,'m');
-		
-	    	testInsertApp();
-
-	}
-
-function testInsertApp() {
-	const app = new Appointment(sampleApp);
-	app.save((err) => {
-		if (err) {
-			console.error(err);
-		} else {
-			console.log("testInsertApp", app);	
-		}
-	})
-}
+//var inicio = moment("2017-10-15T09:00:00Z");
+//var fin =   moment("2017-10-15T09:30:00Z");
+//
+//	for(var i=0;i<=24;i++){
+//	
+//		var sampleApp = {
+//				"dateStart": inicio,
+//				"dateEnd": fin,
+//				"petId": "59e0ad1714e88304c8539f25",
+//				"status": "0",
+//				"note" : "revisión " + i
+// 			};
+//		
+//		inicio = moment(inicio).add(30,'m');
+//		fin = moment(fin).add(30,'m');
+//		
+//	    	testInsertApp();
+//
+//	}
+//
+//function testInsertApp() {
+//	const app = new Appointment(sampleApp);
+//	app.save((err) => {
+//		if (err) {
+//			console.error(err);
+//		} else {
+//			console.log("testInsertApp", app);	
+//		}
+//	})
+//}
 
 //var mikiCustomer = {
 //		"dni": "63215498Z",
@@ -55,16 +55,16 @@ function testInsertApp() {
 //		"note": "A mi derecha"
 //	};
 //
-//var pet1 = 	{
-//		"name" : "Tardar Sauce",
-//		"birthdate" : "2012-04-21",
-//		"specie" : "Cat",
-//		"race" : "Snowshoe",
-//		"chipNumber" : "0003219",
-//		"photoUrl" : "asdf",
-//		"description" : "Un fenómeno de internet.",
-//		"ownerId" : "59dc914e49400a2348e35e85"
-//	};
+var pet1 = 	{
+		"name" : "Pocholo",
+		"birthdate" : "2012-04-21",
+		"specie" : "Canarian",
+		"race" : "Indefinida",
+		"chipNumber" : "0003242",
+		"photoUrl" : "fsda",
+		"description" : "Amante del dulce",
+		"ownerId" : "59e0a7b3c8bb1d1b24e00e33"
+	};
 
 //function testInsertMiki() {
 //	const customer = new Customer(mikiCustomer);
@@ -77,16 +77,16 @@ function testInsertApp() {
 //	})
 //}
 //
-//function testInsertPet() {
-//	const pet = new Pet(pet1);
-//	pet.save((err) => {
-//		if (err) {
-//			console.error(err);
-//		} else {
-//			console.log("testInsertPet", pet);
-//		}
-//	})
-//}
+function testInsertPet() {
+	const pet = new Pet(pet1);
+	pet.save((err) => {
+		if (err) {
+			console.error(err);
+		} else {
+			console.log("testInsertPet", pet);
+		}
+	})
+}
 
 //function testSearchCustomers() {
 //	var search = {};
@@ -105,6 +105,6 @@ function testInsertApp() {
 //}
 
 //testInsertMiki();
-//testInsertPet();
+testInsertPet();
 //testInsertAppointment();
 //testSearchCustomers();

@@ -103,6 +103,58 @@ module.exports = (router) => {
 				}
 			});
 		});
+		
+		// Insertar nueva cita.
+		router.post('/appointments', (req, res, next) => {
+			const appointment = new Appointment(req.body);
+			appointment.save((err) => {
+				if (err) {
+					console.error(err);
+					res.sendStatus(500);
+				} else {
+					res.json(appointment);
+				}
+			})
+		});
+		
+		// Actualizar una cita.
+		router.put('/appointments/:id', (req, res, next) => {
+			Appointment.findOne({_id : req.params.id }, function(err, appointment) {
+				if (err) {
+					return res.send(err);
+				}
+
+				// rellenamos los datos que vienen en la peticion.
+				for(prop in req.body){
+					appointment[prop] = req.body[prop];
+				}
+				
+				console.log("Actualizando cita", appointment);
+				
+				// save
+				appointment.save(function(err) {
+					if (err) {
+						console.error(err);
+						res.sendStatus(500);
+					} else {
+						res.json(appointment);
+					}
+				});
+			});
+		});	
+		
+		// Eliminar una cita.
+		router.delete('/appointments/:id',function(req, res) {
+			console.log("/appointments/" + req.params.id);
+			Appointment.findByIdAndRemove(req.params.id, function(err, pet) {
+				if (err) {
+					console.error(err);
+					res.sendStatus(500);//KO (TODO: elegir un codigo mas explicito)
+				} else {
+					res.sendStatus(200);//OK
+				}
+			});
+		});
 				
 	return router;
 }
