@@ -1,3 +1,19 @@
+header, body, footer{
+	padding-left: 300px;
+}
+
 .container{
 	margin-top: 60px;
+	margin-bottom: 60px;
+}
+
+.imGato{
+	position: absolute;
+	bottom: 33px;
+	text-align: center;
+	width: 100%;
+}
+
+.imGato img{
+	width: 50%;
 }
