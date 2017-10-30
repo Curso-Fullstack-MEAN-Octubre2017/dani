@@ -15,12 +15,20 @@
 				<span data-ng-show="x.appointment">{{x.appointment.status}}</span>
 			</td>
 			<td>
-				<a data-ng-show="x.appointment" href="/appointments/{{x.appointment._id}}">
+				<span data-ng-show="x.appointment" data-ng-click="editAppointment(x.appointment._id)">
 					<i class="material-icons">mode_edit</i>
-				</a>
-				<a data-ng-show="!x.appointment" href="/appointments/new/{{day + '-' + x.hour}}">
+				</span>
+				<span data-ng-show="!x.appointment" data-ng-click="addAppointment(day + '-' + x.hour)">
 					<i class="material-icons">add_box</i>
-				</a>
+				</span>
+				
+<!-- 				<a data-ng-show="x.appointment" href="/appointments/{{x.appointment._id}}"> -->
+<!-- 					<i class="material-icons">mode_edit</i> -->
+<!-- 				</a> -->
+<!-- 				<a data-ng-show="!x.appointment" href="/appointments/new/{{day + '-' + x.hour}}"> -->
+<!-- 					<i class="material-icons">add_box</i> -->
+<!-- 				</a> -->
+				
 			</td>
 		</tr>
 </table>

@@ -36,9 +36,9 @@ angular.module('customerDetailsModule')
     		}
     	}
     	
-    	$scope.remove = function(){
-    		customersService.delete({id: $scope.customer._id}, function(){}, function(error){});
-    	}
+//    	$scope.remove = function(){
+//    		customersService.delete({id: $scope.customer._id}, function(){}, function(error){});
+//    	}
     	
     	
     	

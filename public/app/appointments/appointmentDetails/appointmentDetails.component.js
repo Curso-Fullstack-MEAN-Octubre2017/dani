@@ -4,26 +4,28 @@ angular.module('appointmentDetailsModule', []);
 
 angular.module('appointmentDetailsModule')
     .component('appointmentDetailsModule', {
-        templateUrl:'/app/appointmentDetails/appointmentDetails.html',
-        controller: function($scope, $http, $routeParams) {
+        templateUrl:'/app/appointments/appointmentDetails/appointmentDetails.html',
+        controller: function($scope, $http) {
         	//$("select").material_select(); // Activa el select de Materializecss.
             console.log("Incializando appointmentDetails");
                         
-            if($routeParams.id){
-            	 $http.get("api/appointments/" + $routeParams.id).then(function(response){
-              	   console.log("Response /api/appointments/" + $routeParams.id, response);
-              	   $scope.appointment = response.data; 
-                 });
-            }else{
-            	$scope.appointment = {};
-				$scope.appointment.dateStart =  moment($routeParams.date, 'YYYYMMDD-HH:mm').toDate();
-				$scope.appointment.dateEnd = moment($scope.appointment.dateStart).add(30, 'm').toDate();            	 
-            }
-     
-            
-     	   $http.get("api/pets").then(function(response){
-     		  $scope.pets = response.data; 
-     	   });            
+            $scope.$on("appointment:showAppointment", function(event, data){
+	        	if(data.id){
+	        		$http.get("api/appointments/" + data.id).then(function(response){
+	                 	console.log("Response /api/appointments/" + data.id, response);
+	                 	$scope.appointment = response.data; 
+	        		});
+	            }else{
+	               	$scope.appointment = {};
+	   				$scope.appointment.dateStart =  moment(data.date, 'YYYYMMDD-HH:mm').toDate();
+	   				$scope.appointment.dateEnd = moment($scope.appointment.dateStart).add(30, 'm').toDate();            	 
+	            }
+	        	
+	        	$http.get("api/pets").then(function(response){
+	       		  $scope.pets = response.data; 
+	       	   });	        	
+            });    
+                     
             
            $scope.insert = function(){
       		   console.log("Insert appointment:", $scope.appointment);

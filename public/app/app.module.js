@@ -10,5 +10,6 @@ angular.module('petStore', [
     'appointmentMonthsModule',
     'appointmentsCalendarModule',
     'appointmentsDayModule',
-    'appointmentDetailsModule'
+    'appointmentDetailsModule',
+    'appointmentsModule'
 ]);

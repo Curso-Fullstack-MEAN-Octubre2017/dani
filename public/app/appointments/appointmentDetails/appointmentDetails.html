@@ -1,10 +1,10 @@
 
-<div>
+<div ng-show="appointment._id">
 
 <h5 class="header blue-text darken-1">Cita: {{appointment.dateStart | date: 'HH:mm'}}h. del {{appointment.dateStart | date: 'dd/MM/y'}}</h5>
 
-Mascota:<select id="mi-select" class="browser-default" ng-model="appointment.petId._id" 
-			ng-options="pet._id as pet.name for pet in pets">
+Mascota:<select id="mi-select" class="browser-default" data-ng-model="appointment.petId._id" 
+			data-ng-options="pet._id as pet.name for pet in pets">
 	        <option value="" disabled selected>Selecciona una mascota</option>
 	    </select><br>
 Estado:<select id="mi-select" class="browser-default" data-ng-model="appointment.status">

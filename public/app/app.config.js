@@ -19,8 +19,8 @@ angular.module('petStore')
             .when("/customers/:customerId/pets/new",{
             	template: "<pet-details-module></pet-details-module>"
             })
-            .when("/appointments/", {
-            	template: "<appointment-months-module></appointment-months-module>"
+            .when("/appointments-day/:date", {
+            	template: "<appointments-module></appointments-module>"
             })            
             .when("/appointments/:id",{
             	template: "<appointment-details-module></appointment-details-module>"
@@ -34,9 +34,9 @@ angular.module('petStore')
             .when("/appointments-calendar/:month",{
             	template: "<appointments-calendar-module></appointments-calendar-module>"
             })
-            .when("/appointments-day/:date",{
-            	template: "<appointments-day-module></appointments-day-module>"
-            })
+//            .when("/appointments-day/:date",{
+//            	template: "<appointments-day-module></appointments-day-module>"
+//            })
             .otherwise({
                 template: "Other"
             });
