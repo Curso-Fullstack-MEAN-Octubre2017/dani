@@ -23,12 +23,7 @@ angular.module('appointmentsDayModule')
             	console.log("on appointments:loadAppointment", data);
             	loadAppointment(data.day);
             });
-            
-            $scope.$on("appointment:newAppointment", function(event, data){
-            	console.log("on appointment:clearAppointment" data);
-            	
-            });
-            
+                        
             function loadAppointment(day){
 
             	var fromDate = moment(day).format("YYYYMMDD");

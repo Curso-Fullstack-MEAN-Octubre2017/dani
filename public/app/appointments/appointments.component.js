@@ -27,7 +27,19 @@ angular.module('appointmentsModule')
             $scope.$on("appointment:newAppointmentClick", function(event, data){
             	console.log("He recibido los siguientes datos: ", data);
             	
-            	$scope.$broadcast("appointment:newAppointment", data);
+            	$scope.$broadcast("appointment:showAppointment", data);
+            });
+            
+            $scope.$on("appointment:insertAppointmentClick", function(event, data){
+            	console.log("Recibida la petición para añadir estos datos: ", data);
+            	
+            	$scope.$broadcast("appointments:loadAppointment", {day: data.dateStart});
+            });
+            
+            $scope.$on("appointment:updateAppointmentClick", function(event, data){
+            	console.log("Recibida la petición para editar estos datos: ", data);
+            	
+            	$scope.$broadcast("appointments:loadAppointment", {day: data.dateStart});
             });
              
         }
