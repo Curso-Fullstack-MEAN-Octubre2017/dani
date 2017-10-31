@@ -23,6 +23,12 @@ angular.module('appointmentsModule')
             	$scope.$broadcast("appointment:showAppointment", data);
             	
             });
+            
+            $scope.$on("appointment:newAppointmentClick", function(event, data){
+            	console.log("He recibido los siguientes datos: ", data);
+            	
+            	$scope.$broadcast("appointment:newAppointment", data);
+            });
              
         }
     });

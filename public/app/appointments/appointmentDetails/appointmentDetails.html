@@ -1,25 +1,23 @@
-
 <div ng-show="appointment._id">
 
-<h5 class="header blue-text darken-1">Cita: {{appointment.dateStart | date: 'HH:mm'}}h. del {{appointment.dateStart | date: 'dd/MM/y'}}</h5>
+    <h5 class="header teal-text darken-2">Cita: {{appointment.dateStart | date: 'HH:mm'}}h. del {{appointment.dateStart | date: 'dd/MM/y'}}</h5>
 
-Mascota:<select id="mi-select" class="browser-default" data-ng-model="appointment.petId._id" 
-			data-ng-options="pet._id as pet.name for pet in pets">
+    Mascota:<select id="mi-select" class="browser-default" data-ng-model="appointment.petId._id" data-ng-options="pet._id as pet.name for pet in pets">
 	        <option value="" disabled selected>Selecciona una mascota</option>
-	    </select><br>
-Estado:<select id="mi-select" class="browser-default" data-ng-model="appointment.status">
+	    </select><br> Estado:
+    <select id="mi-select" class="browser-default" data-ng-model="appointment.status">
 	        <option value="" disabled selected>Selecciona un estado</option>
 	        <option value="-1">Cancelado</option>
 	        <option value="0">Pendiente</option>
 	        <option value="1">En Curso</option>
 	        <option value="2">Completado</option>
 	    </select><br>
-<!-- <input type="text" data-ng-model="appointment.status" placeholder="" /><br /> -->
-note:<input type="text" data-ng-model="appointment.note" placeholder="" /><br />
-<br /><br />
+    <!-- <input type="text" data-ng-model="appointment.status" placeholder="" /><br /> -->
+    note:<input type="text" data-ng-model="appointment.note" placeholder="" /><br />
+    <br /><br />
 
-<input type="button" data-ng-show="isNew()" data-ng-click="insert()" value="Insert">
-<input type="button" data-ng-show="!isNew()" data-ng-click="update()" value="Update">
-<input type="button" data-ng-click="delete()" value="Delete">
+    <input type="button" data-ng-show="isNew()" data-ng-click="insert()" value="Insert">
+    <input type="button" data-ng-show="!isNew()" data-ng-click="update()" value="Update">
+    <input type="button" data-ng-click="delete()" value="Delete">
 
 </div>

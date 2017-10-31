@@ -1,19 +1,121 @@
-header, body, footer{
-	padding-left: 300px;
+/* Estilos Generales */
+
+body {
+    display: flex;
+    min-height: 100vh;
+    flex-direction: column;
+    color: #212121;
 }
 
-.container{
-	margin-top: 60px;
-	margin-bottom: 60px;
+main {
+    flex: 1 0 auto;
 }
 
-.imGato{
-	position: absolute;
-	bottom: 33px;
-	text-align: center;
-	width: 100%;
+header,
+main,
+footer {
+    padding-left: 300px;
 }
 
-.imGato img{
-	width: 50%;
+header nav {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    padding-left: 300px;
+}
+
+.container {
+    margin-top: 120px;
+    margin-bottom: 120px;
+}
+
+.imGato {
+    position: absolute;
+    bottom: 33px;
+    text-align: center;
+    width: 100%;
+}
+
+.imGato img {
+    width: 50%;
+}
+
+
+/* Calendario */
+
+.calendar {
+    margin: auto;
+}
+
+.calendar .navigation {
+    display: flex;
+    width: 100%;
+    align-items: center;
+    justify-content: center;
+}
+
+.calendar .navigation .prev,
+.calendar .navigation .month,
+.calendar .navigation .next {
+    flex: 3;
+    text-align: center;
+}
+
+.calendar .navigation .prev i,
+.calendar .navigation .month span,
+.calendar .navigation .next i {
+    padding: 10px 0;
+}
+
+.calendar .calendar_header .calendar_day {
+    text-align: center;
+    border-bottom: 2px solid #009688;
+}
+
+.calendar .calendar_body .calendar_day {
+    position: relative;
+    text-align: center;
+}
+
+.calendar .calendar_body .calendar_day .number_day {
+    margin-bottom: 5px;
+    color: #009688;
+}
+
+.calendar .calendar_body .calendar_day.sunday .number_day {
+    color: #f44336;
+}
+
+.calendar .calendar_body .calendar_day .number_appointments {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    background-color: #b2dfdb;
+    border-radius: 2px 2px 0 0;
+    font-size: 10px;
+    cursor: pointer;
+}
+
+.calendar .calendar_body .calendar_day .number_appointments i {
+    font-size: 9px;
+}
+
+
+/* Footer */
+
+footer {
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+}
+
+footer.page-footer {
+    padding-top: 0;
+}
+
+footer.page-footer .text-footer {
+    padding-left: 10px;
 }

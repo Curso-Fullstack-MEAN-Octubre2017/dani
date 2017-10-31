@@ -23,7 +23,7 @@ angular.module('appointmentDetailsModule')
 	        	
 	        	$http.get("api/pets").then(function(response){
 	       		  $scope.pets = response.data; 
-	       	   });	        	
+	       	    });	        	
             });    
                      
             

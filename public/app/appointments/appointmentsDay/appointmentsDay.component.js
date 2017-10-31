@@ -10,17 +10,23 @@ angular.module('appointmentsDayModule')
         },
         controller: function($scope, $http) {
             console.log("Incializando appointmentsDay");
-            
+                        
             this.$onInit = function(){
             	console.log("appointmentsDay->$onInit");
             	console.log("day: ", this.day);
             	var day = moment(this.day);
+            	$scope.day = moment(day).format("YYYYMMDD");
             	loadAppointment(day.toDate());
             }
             
             $scope.$on("appointments:loadAppointment", function(event, data){
             	console.log("on appointments:loadAppointment", data);
             	loadAppointment(data.day);
+            });
+            
+            $scope.$on("appointment:newAppointment", function(event, data){
+            	console.log("on appointment:clearAppointment" data);
+            	
             });
             
             function loadAppointment(day){
@@ -51,12 +57,14 @@ angular.module('appointmentsDayModule')
             $scope.editAppointment = function(id){
             	console.log("Vamos a editar: " + id);
             	
-            	$scope.$emit("appointment:showAppointmentClick",{id: id});            	
+            	$scope.$emit("appointment:showAppointmentClick",{id: id});           	
             }
             
             // Función que nos permite crear una cita nueva.
-            $scope.addAppointment = function(){
-            	console.log("Vamos a añadir");
+            $scope.addAppointment = function(datetime){
+            	console.log("Vamos a añadir:" + datetime);
+            	
+            	$scope.$emit("appointment:newAppointmentClick", {datetime: datetime});
             }
             
         }

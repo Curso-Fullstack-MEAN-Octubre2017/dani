@@ -1,34 +1,25 @@
-
 <table class="responsive-table bordered centered highlight">
-		<tr class="blue darken-1 white-text">
-			<td>Hora</td>
-			<td>Mascota</td>
-			<td>Estado de la cita</td>
-			<td><i class="material-icons">input</i></th>
-		</tr>
-		<tr data-ng-repeat="x in timetable">
-			<td>{{x.hour}}</td> 
-			<td>
-				<span data-ng-show="x.appointment">{{x.appointment.petId.name}}</span>
-			</td>
-			<td>
-				<span data-ng-show="x.appointment">{{x.appointment.status}}</span>
-			</td>
-			<td>
-				<span data-ng-show="x.appointment" data-ng-click="editAppointment(x.appointment._id)">
-					<i class="material-icons">mode_edit</i>
-				</span>
-				<span data-ng-show="!x.appointment" data-ng-click="addAppointment(day + '-' + x.hour)">
-					<i class="material-icons">add_box</i>
-				</span>
-				
-<!-- 				<a data-ng-show="x.appointment" href="/appointments/{{x.appointment._id}}"> -->
-<!-- 					<i class="material-icons">mode_edit</i> -->
-<!-- 				</a> -->
-<!-- 				<a data-ng-show="!x.appointment" href="/appointments/new/{{day + '-' + x.hour}}"> -->
-<!-- 					<i class="material-icons">add_box</i> -->
-<!-- 				</a> -->
-				
-			</td>
-		</tr>
+    <tr class="teal darken-2 white-text">
+        <td>Hora</td>
+        <td>Mascota</td>
+        <td>Estado de la cita</td>
+        <td><i class="material-icons">input</i></th>
+    </tr>
+    <tr data-ng-repeat="x in timetable">
+        <td>{{x.hour}}</td>
+        <td>
+            <span data-ng-show="x.appointment">{{x.appointment.petId.name}}</span>
+        </td>
+        <td>
+            <span data-ng-show="x.appointment">{{x.appointment.status}}</span>
+        </td>
+        <td>
+            <span data-ng-show="x.appointment" data-ng-click="editAppointment(x.appointment._id)">
+				<i class="material-icons">mode_edit</i>
+			</span>
+            <span data-ng-show="!x.appointment" data-ng-click="addAppointment(day + '-' + x.hour)">
+				<i class="material-icons">add_box</i>
+			</span>
+        </td>
+    </tr>
 </table>

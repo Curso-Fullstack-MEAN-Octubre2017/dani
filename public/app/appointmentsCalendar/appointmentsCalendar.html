@@ -1,34 +1,37 @@
-
 <div class="calendar">
 
-	<div class="navigarion">		
-		<div class="prev">
-			<a data-ng-href="appointments-calendar/{{prevMonth | date : 'yyyyMMdd'}}">
-				<i>&#60;&#60;</i>
-			</a>
-		</div>
-		<div class="month">
-			<span>{{currentMonth | date : 'MMMM yyyy'}}</span>
-		</div>
-		<div class="next">
-			<a data-ng-href="appointments-calendar/{{nextMonth | date: 'yyyyMMdd'}}">
-				<i>&#62;&#62;</i>
-			</a>
-		</div>			
-	</div>
-	<div class="calendar_header">
-		<div class="calendar_day monday">Lunes</div>
-		<div class="calendar_day tuesday">Martes</div>
-		<div class="calendar_day wednesday">Miércoles</div>
-		<div class="calendar_day thursday">Jueves</div>
-		<div class="calendar_day friday">Viernes</div>
-		<div class="calendar_day saturday">Sábado</div>
-		<div class="calendar_day sunday">Domingo</div>
-	</div>
-	<div class="calendar_body">		
-		<div class="calendar_day {{cell.date | date: 'EEEE' | lowercase}}" data-ng-repeat="cell in cells">
-			<span>{{cell.date | date: 'dd-MM-yyyy'}}</span>
-			<span data-ng-click="appointmentsDate(cell.date)">{{cell.appointmentsCount}}</span>	
-		</div>		
-	</div>
+    <div class="navigation teal white-text">
+        <div class="prev">
+            <a data-ng-href="appointments-calendar/{{prevMonth | date : 'yyyyMMdd'}}">
+                <i class="material-icons white-text">keyboard_arrow_left</i>
+            </a>
+        </div>
+        <div class="month">
+            <span>{{currentMonth | date : 'MMMM yyyy'}}</span>
+        </div>
+        <div class="next">
+            <a data-ng-href="appointments-calendar/{{nextMonth | date: 'yyyyMMdd'}}">
+                <i class="material-icons white-text">keyboard_arrow_right</i>
+            </a>
+        </div>
+    </div>
+    <table>
+        <tr class="calendar_header">
+            <th class="calendar_day monday">Lunes</th>
+            <th class="calendar_day tuesday">Martes</th>
+            <th class="calendar_day wednesday">Miércoles</th>
+            <th class="calendar_day thursday">Jueves</th>
+            <th class="calendar_day friday">Viernes</th>
+            <th class="calendar_day saturday">Sábado</th>
+            <th class="calendar_day sunday">Domingo</th>
+        </tr>
+        <tr class="calendar_body" data-ng-repeat="days in dates">
+            <td class="calendar_day {{day.date | date: 'EEEE' | lowercase}}" data-ng-repeat="day in days">
+                <span class="number_day">{{day.date | date: 'd'}}</span>
+                <span class="number_appointments" data-ng-click="appointmentsDate(day.date)">
+                    {{day.appointmentsCount}} <i class="material-icons">library_books</i>
+                </span>
+            </td>
+        </tr>
+    </table>
 </div>

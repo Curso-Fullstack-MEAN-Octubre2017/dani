@@ -1,16 +1,16 @@
 <div data-ng-controller="CustomerListController">
-	<table class="table-responsive bordered highlight centered">
-		<thead class="blue darken-1 white-text">
-			<th>ID</th>
-			<th>DNI</th>
-			<th>Nombre</th>
-			<th>Apellido</th>
-		</thead>
-		<tr ng-repeat="customer in customerList">
-			<td><a ng-href="/customers/{{customer._id}}" >{{customer._id}}</a></td>
-			<td>{{customer.dni}}</td>
-			<td>{{customer.firstName}}</td>
-			<td>{{customer.lastName}}</td>
-		</tr>
-	</table>
+    <table class="table-responsive bordered highlight centered">
+        <thead class="teal darken-2 white-text">
+            <th>ID</th>
+            <th>DNI</th>
+            <th>Nombre</th>
+            <th>Apellido</th>
+        </thead>
+        <tr ng-repeat="customer in customerList">
+            <td><a ng-href="/customers/{{customer._id}}">{{customer._id}}</a></td>
+            <td>{{customer.dni}}</td>
+            <td>{{customer.firstName}}</td>
+            <td>{{customer.lastName}}</td>
+        </tr>
+    </table>
 </div>
