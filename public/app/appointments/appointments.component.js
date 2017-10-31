@@ -41,6 +41,12 @@ angular.module('appointmentsModule')
             	
             	$scope.$broadcast("appointments:loadAppointment", {day: data.dateStart});
             });
+            
+            $scope.$on("appointment:deleteAppointmentClick", function(event, data){
+            	console.log("Recibida la petición para eliminar estos datos: ", data);
+            	
+            	$scope.$broadcast("appointments:loadAppointment", {day: data.dateStart});
+            });
              
         }
     });

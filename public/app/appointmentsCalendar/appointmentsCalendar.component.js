@@ -67,5 +67,12 @@ angular.module('appointmentsCalendarModule')
             $scope.appointmentsDate = function(date) {
                 $location.path("/appointments-day/" + moment(date).format("YYYYMMDD"))
             }
+            
+            /* prueba de socket.io */
+            var socket = io.connect();
+            socket.on('appointments:evento1', function(data){
+         	   console.log("Recibido el evento appointments:evento1", data);
+         	// realizar operaciones relacionadas con este evento 
+            });
         }
     });

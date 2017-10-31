@@ -11,6 +11,11 @@ var mongoose = require('mongoose');
 mongoose.connect('mongodb://localhost/petStore', { useMongoClient: true });
 
 var app = express();
+
+/* Socket.io */
+app.io = require('socket.io')();
+require("./routes/socketio-manager.js")(app.io);
+
 // view engine setup
 app.set('views', path.join(__dirname, 'views'));
 app.set('view engine', 'jade');

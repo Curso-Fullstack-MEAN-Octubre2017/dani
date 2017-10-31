@@ -44,12 +44,11 @@ angular.module('appointmentDetailsModule')
            
            $scope.delete = function(){
         	   console.log("Delete appointment:", $scope.appointment);
-        	   $http.delete("api/appointments/" + $scope.appointment._id).then(function(response){});
+        	   $http.delete("api/appointments/" + $scope.appointment._id).then(function(response){
+        		   $scope.appointment = response.data;
+        		   $scope.$emit("appointment:deleteAppointmentClick", $scope.appointment);
+        	   });
            }
-           
-           $scope.isNew = function() {
-        	   return $scope.appointment === undefined || $scope.appointment._id === undefined;
-	       }
-            
+                      
         }
     });
