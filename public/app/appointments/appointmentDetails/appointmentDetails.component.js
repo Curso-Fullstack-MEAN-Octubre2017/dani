@@ -44,9 +44,10 @@ angular.module('appointmentDetailsModule')
            
            $scope.delete = function(){
         	   console.log("Delete appointment:", $scope.appointment);
+        	   var appointment = $scope.appointment;
         	   $http.delete("api/appointments/" + $scope.appointment._id).then(function(response){
         		   $scope.appointment = response.data;
-        		   $scope.$emit("appointment:deleteAppointmentClick", $scope.appointment);
+        		   $scope.$emit("appointment:deleteAppointmentClick", appointment);
         	   });
            }
                       

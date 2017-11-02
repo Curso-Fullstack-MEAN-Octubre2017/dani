@@ -1,26 +1,54 @@
 <div data-ng-controller="CustomerDetailsController">
-CustomerDetailsController {{customer._id}}<br />
 
-dni:<input type="text" data-ng-model="customer.dni" placeholder="" /><br />
-lastName:<input type="text" data-ng-model="customer.lastName" placeholder="" /><br />
-firstName:<input type="text" data-ng-model="customer.firstName" placeholder="" /><br />
-phone:<input type="text" data-ng-model="customer.phone" placeholder="" /><br />
-email:<input type="text" data-ng-model="customer.email" placeholder="" /><br />
-note:<input type="text" data-ng-model="customer.note" placeholder="" /><br />
-<br /><br />
+    <div class="row">
+        <form class="col s12">
 
-<input type="button" data-ng-click="submit()" value="Guardar"/>
-<input type="button" data-ng-click="cancel()" value="Cancelar"/>
+            <div class="row">
+				<directive-form-input data-col="s6" data-label="Nombre" data-model="customer.firstName" data-id="first_name"></directive-form-input>
+				<directive-form-input data-col="s6" data-label="Apellidos" data-model="customer.lastName" data-id="last_name"></directive-form-input>                
+            </div>
 
-<br />
-<br />
+            <div class="row">
+	            <directive-form-input data-col="s6" data-label="DNI" data-model="customer.dni" data-id="dni"></directive-form-input>
+	            <directive-form-input data-col="s6" data-label="Teléfono" data-model="customer.phone" data-id="phone"></directive-form-input>                
+            </div>
 
-<ul>
-	<li data-ng-repeat="pet in customerPets">
-	{{pet}}
-	<a data-ng-href="/pets/{{pet._id}}">Detalles Mascota</a>
-	</li>
-</ul>
-<a href="/customers/{{customer._id}}/pets/new">Añadir Mascota</a>
+            <div class="row">
+            	<directive-form-input data-col="s12" data-label="Email" data-model="customer.email" data-id="email"></directive-form-input>              
+            </div>
+
+            <div class="row">
+            	<directive-form-area data-col="s12" data-label="Nota:" data-model="customer.note" data-id="textarea1"></directive-form-area>                
+            </div>
+
+
+            <button class="btn waves-effect waves-light" type="submit" data-ng-click="submit()">Guardar
+				<i class="material-icons right">save</i>
+			</button>
+
+            <button class="btn waves-effect waves-light" type="submit" data-ng-click="cancel()">Cancelar
+				<i class="material-icons right">cancel</i>
+			</button>
+
+        </form>
+    </div>
+
+    <h5 class="header teal-text">Mascotas <i class="material-icons">pets</i></h5>
+
+    <ul class="collection">
+        <li class="collection-item avatar" data-ng-repeat="pet in customerPets">
+            <img data-ng-src="{{pet.photoUrl}}" alt="avatar" class="circle">
+            <span class="title">{{pet.name}}</span>
+            <p>
+                {{pet.specie}} {{pet.race}} Nº: {{pet.chipNumber}}
+            </p>
+            <a data-ng-href="/pets/{{pet._id}}" class="secondary-content">
+                <i class="material-icons">edit</i>
+            </a>
+        </li>
+    </ul>
+    <a class="btn waves-effect waves-light" data-ng-href="/customers/{{customer._id}}/pets/new">
+		Añadir Mascota
+	</a>
 
 </div>

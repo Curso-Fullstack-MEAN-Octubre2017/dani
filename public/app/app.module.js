@@ -3,6 +3,7 @@
 angular.module('petStore', [
     'ngResource',
     'ngRoute',
+    'directiveModule',
     'customerListModule',
     'customerDetailsModule',
     'customersService',
